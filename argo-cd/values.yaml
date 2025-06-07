@@ -1,4 +1,5 @@
 host: argo-cd.ece.gg
+repoURL: git@github.com:ece-gg/gitops.git
 argo-cd-upstream:
   configs:
     params:

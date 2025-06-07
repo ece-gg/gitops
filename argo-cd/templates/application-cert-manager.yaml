@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     path: cert-manager
-    repoURL: git@github.com:ece-gg/gitops.git
+    repoURL: {{ .Values.repoURL }}
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
