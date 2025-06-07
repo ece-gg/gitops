@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argo-cd
+  namespace: {{ .Release.Namespace }}
+spec:
+  secretName: argo-cd-tls
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-production
+  dnsNames:
+  - {{ .Values.host }}

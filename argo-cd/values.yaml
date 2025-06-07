@@ -1,0 +1,5 @@
+host: argo-cd.ece.gg
+argo-cd-upstream:
+  configs:
+    params:
+      server.insecure: true
