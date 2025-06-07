@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: app
+  namespace: {{ .Release.Namespace }}
+spec:
+  name: app
+  owner: app
+  cluster:
+    name: {{ .Release.Name }}
+  ensure: absent
