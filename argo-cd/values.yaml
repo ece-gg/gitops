@@ -3,3 +3,6 @@ argo-cd-upstream:
   configs:
     params:
       server.insecure: true
+    ssh:
+      extraHosts: |
+        code.ece.gg ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC+6MjMJmj/zeKik9U3R5LqtwQ+yN/HU5wpKNDGwaVzJ
