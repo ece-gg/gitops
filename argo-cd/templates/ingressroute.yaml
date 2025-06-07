@@ -11,13 +11,13 @@ spec:
       match: Host(`{{ .Values.host }}`)
       priority: 10
       services:
-        - name: argocd-server
+        - name: argo-cd-argocd-server
           port: 80
     - kind: Rule
       match: Host(`{{ .Values.host }}`) && Header(`Content-Type`, `application/grpc`)
       priority: 11
       services:
-        - name: argocd-server
+        - name: argo-cd-argocd-server
           port: 80
           scheme: h2c
   tls:
