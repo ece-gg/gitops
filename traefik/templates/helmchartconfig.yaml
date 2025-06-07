@@ -1,0 +1,26 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: {{ .Release.Namespace }}
+spec:
+  valuesContent: |-
+    ports:
+      ssh:
+        port: 2200
+        expose:
+          default: true
+        exposedPort: 2200
+        protocol: TCP
+      dns:
+        port: 5300
+        expose:
+          default: true
+        exposedPort: 5300
+        protocol: UDP
+      dns-tcp:
+        port: 5301
+        expose:
+          default: true
+        exposedPort: 5301
+        protocol: TCP
