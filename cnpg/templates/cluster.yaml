@@ -12,5 +12,10 @@ spec:
     roles:
     - name: app
       ensure: absent
+    - name: forgejo
+      ensure: present
+      login: true
+      passwordSecret:
+        name: cnpg-forgejo
     services:
       disabledDefaultServices: ["ro"]
