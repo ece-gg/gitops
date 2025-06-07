@@ -1,0 +1,8 @@
+apiVersion: v2
+name: 
+version: "0.1.0"
+dependencies:
+  - name: "cloudnative-pg"
+    version: "0.24.0"
+    repository: "https://cloudnative-pg.github.io/charts"
+    alias: "cloudnative-pg-upstream"

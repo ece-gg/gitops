@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cnpg-system
+  namespace: {{ .Release.Namespace }}
+spec:
+  project: default
+  source:
+    path: cnpg-system
+    repoURL: git@github.com:ece-gg/gitops.git
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cnpg-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
