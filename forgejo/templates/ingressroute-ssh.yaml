@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: forgejo-ssh
+  namespace: {{ .Release.Namespace }}
+spec:
+  entryPoints:
+    - ssh
+  routes:
+  - kind: Rule
+    match: HostSNI(`*`)
+    services:
+    - name: forgejo
+      port: 22
