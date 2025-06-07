@@ -11,5 +11,3 @@ spec:
     services:
     - name: forgejo
       port: 22
-      proxyProtocol:
-        version: 2
