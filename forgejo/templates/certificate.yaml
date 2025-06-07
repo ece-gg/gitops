@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: forgejo
+  namespace: default
+spec:
+  secretName: forgejo-tls
+  issuerRef:
+    name: letsencrypt
+  dnsNames:
+  - code.ece.gg

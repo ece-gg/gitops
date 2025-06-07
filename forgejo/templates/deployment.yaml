@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: forgejo
+      namespace: {{ .Release.Namespace }}
+      labels:
+        app.kubernetes.io/name: forgejo
+    spec:
+      containers:
+      - image: codeberg.org/forgejo/forgejo:11
+        name: forgejo
+        ports:
+        - name: http
+          containerPort: 3000
+        env:
+        - name: USER_UID
+          value: "1000"
+        - name: USER_GID
+          value: "1000"
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: forgejo-data
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: forgejo
