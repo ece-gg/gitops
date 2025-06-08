@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rgw-websecure
+  namespace: {{ .Release.Namespace }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: HostRegexp(`^.+\.{{ .Values.host | replace "." "\\." }}$`) || Host(`{{ .Values.host }}`)
+    services:
+    - name: rgw
+      port: 7480
+  tls:
+    secretName: rgw-tls
