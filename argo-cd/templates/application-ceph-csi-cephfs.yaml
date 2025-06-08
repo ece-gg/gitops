@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ceph-csi-cephfs
+  namespace: {{ .Release.Namespace }}
+spec:
+  project: default
+  source:
+    path: ceph-csi-cephfs
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ceph-csi-cephfs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
