@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: compeng
+  namespace: {{ .Release.Namespace }}
+spec:
+  name: compeng
+  owner: compeng
+  cluster:
+    name: {{ .Release.Name }}
+  ensure: present

@@ -12,6 +12,11 @@ spec:
     roles:
     - name: app
       ensure: absent
+    - name: compeng
+      ensure: present
+      login: true
+      passwordSecret:
+        name: cnpg-compeng
     - name: forgejo
       ensure: present
       login: true
