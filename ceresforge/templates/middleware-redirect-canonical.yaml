@@ -1,0 +1,10 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-canonical
+  namespace: {{ .Release.Namespace }}
+spec:
+  redirectRegex:
+    permanent: true
+    regex: ^https?://(www.)?{{ .Values.host }}(.*)
+    replacement: https://{{ .Values.host }}${2}
