@@ -22,6 +22,11 @@ spec:
         env:
         - name: DOMAIN
           value: "https://{{ .Values.host }}"
+        - name: ADMIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}
+              key: admin-token
         volumeMounts:
         - name: data
           mountPath: /data
