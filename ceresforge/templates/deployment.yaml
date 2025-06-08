@@ -13,7 +13,7 @@ spec:
         app.kubernetes.io/name: {{ .Release.Name }}
     spec:
       containers:
-      - image: gitea.eyl.io/jon/ceresforge:latest
+      - image: ghcr.io/ceresforge/ceresforge:latest
         name: {{ .Release.Name }}
         ports:
         - name: http
