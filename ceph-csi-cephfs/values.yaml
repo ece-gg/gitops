@@ -1,0 +1,7 @@
+ceph-csi-cephfs:
+  csiConfig:
+    - clusterID: "10bed826-45da-4aa0-b2c0-6af8d63ee06c"
+      monitors:
+        - "10.1.10.10:6789"
+        - "10.1.10.11:6789"
+        - "10.1.10.12:6789"
