@@ -5,6 +5,6 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   ports:
-    - name: http
+    - name: https
       protocol: TCP
       port: 8006
