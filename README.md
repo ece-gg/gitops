@@ -3,9 +3,8 @@
 First, you'll need to bootstrap the install:
 
 ```
-helm repo add argo https://argoproj.github.io/argo-helm
-helm repo update
-helm template --namespace "argo-cd" "argo-cd" argo/argo-cd > bootstrap.yaml
+helm dependency build argo-cd
+helm template argo-cd argo-cd --namespace argo-cd > bootstrap.yaml
 kubectl apply -f bootstrap.yaml
 rm bootstrap.yaml
 ```
