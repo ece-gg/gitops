@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: pihole
+      namespace: pihole
+      labels:
+        app.kubernetes.io/name: pihole
+    spec:
+      containers:
+      - image: pihole/pihole:latest
+        name: pihole
+        ports:
+        - name: dns-tcp
+          protocol: TCP
+          containerPort: 53
+        - name: dns
+          protocol: UDP
+          containerPort: 53
+        - name: http
+          protocol: TCP
+          containerPort: 80
+        env:
+        - name: TZ
+          value: "America/Toronto"
+        volumeMounts:
+        - name: etc-pihole
+          mountPath: /etc/pihole
+      volumes:
+      - name: etc-pihole
+        persistentVolumeClaim:
+          claimName: pihole-etc-pihole
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: pihole

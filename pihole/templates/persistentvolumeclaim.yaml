@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pihole-etc-pihole
+  namespace: {{ .Release.Namespace }}
+spec:
+  storageClassName: csi-cephfs-sc
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
