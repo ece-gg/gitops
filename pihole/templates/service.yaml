@@ -7,9 +7,12 @@ spec:
   selector:
     app.kubernetes.io/name: pihole
   ports:
-    - name: ssh
+    - name: dns-tcp
       protocol: TCP
-      port: 22
+      port: 53
+    - name: dns
+      protocol: UDP
+      port: 53
     - name: http
       protocol: TCP
-      port: 3000
+      port: 80
