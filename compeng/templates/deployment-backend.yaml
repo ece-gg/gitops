@@ -15,6 +15,7 @@ spec:
       serviceAccountName: webhook
       containers:
       - image: ghcr.io/compeng-gg/compeng-gg-backend:latest
+        imagePullPolicy: Always
         name: {{ .Release.Name }}-backend
         envFrom:
         - secretRef:
