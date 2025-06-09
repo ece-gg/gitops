@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-frontend
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: {{ .Release.Name }}-frontend
+      namespace: {{ .Release.Namespace }}
+      labels:
+        app.kubernetes.io/name: {{ .Release.Name }}-frontend
+    spec:
+      containers:
+      - image: ghcr.io/compeng-gg/compeng-gg-frontend:latest
+        name: {{ .Release.Name }}-frontend
+        ports:
+        - name: http
+          protocol: TCP
+          containerPort: 3000
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ .Release.Name }}-frontend
+  

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: compeng
+  namespace: {{ .Release.Namespace }}
+spec:
+  project: default
+  source:
+    path: compeng
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: compeng
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
