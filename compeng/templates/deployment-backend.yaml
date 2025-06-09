@@ -12,6 +12,7 @@ spec:
       labels:
         app.kubernetes.io/name: {{ .Release.Name }}-backend
     spec:
+      serviceAccountName: webhook
       containers:
       - image: ghcr.io/compeng-gg/compeng-gg-backend:latest
         name: {{ .Release.Name }}-backend
