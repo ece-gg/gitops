@@ -8,7 +8,7 @@ spec:
     - websecure
   routes:
   - kind: Rule
-    match: Host(`{{ .Values.host }}` && PathPrefix(`/api`)
+    match: Host(`{{ .Values.host }}`) && PathPrefix(`/api`)
     services:
     - name: {{ .Release.Name }}-backend
       port: 8000
