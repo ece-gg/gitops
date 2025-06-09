@@ -8,9 +8,9 @@ spec:
     - web
   routes:
   - kind: Rule
-    match: Host(`{{ .Values.host }}`)
+    match: Host(`{{ .Values.host }}`) || Host(`www.{{ .Values.host }}`)
     middlewares:
-    - name: redirect-https
+    - name: redirect-canonical
     services:
     - name: noop@internal
       kind: TraefikService

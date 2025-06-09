@@ -15,6 +15,9 @@ spec:
       containers:
       - image: ghcr.io/compeng-gg/compeng-gg-frontend:latest
         name: {{ .Release.Name }}-frontend
+        envFrom:
+        - secretRef:
+            name: {{ .Release.Name }}-frontend
         ports:
         - name: http
           protocol: TCP
