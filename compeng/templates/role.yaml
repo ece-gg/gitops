@@ -7,4 +7,3 @@ rules:
 - apiGroups: [""]
   resources: ["pods", "pods/attach", "pods/eviction", "pods/exec", "pods/log", "pods/status"]
   verbs: ["*"]
-

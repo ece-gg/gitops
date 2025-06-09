@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: github-content
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+      - ReadWriteMany
+  storageClassName: csi-cephfs-sc
+  resources:
+    requests:
+      storage: 16Gi
