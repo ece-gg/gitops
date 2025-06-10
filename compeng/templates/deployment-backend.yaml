@@ -14,7 +14,7 @@ spec:
     spec:
       serviceAccountName: webhook
       containers:
-      - image: ghcr.io/compeng-gg/compeng-gg-backend:latest
+      - image: code.ece.gg/compeng-gg/compeng-backend:latest
         imagePullPolicy: Always
         name: {{ .Release.Name }}-backend
         envFrom:
@@ -24,6 +24,8 @@ spec:
         - name: http
           protocol: TCP
           containerPort: 8000
+      imagePullSecrets:
+      - name: docker
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ .Release.Name }}-backend

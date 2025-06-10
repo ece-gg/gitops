@@ -13,7 +13,7 @@ spec:
         app.kubernetes.io/name: {{ .Release.Name }}-discordbot
     spec:
       containers:
-      - image: ghcr.io/compeng-gg/compeng-gg-backend:latest
+      - image: code.ece.gg/compeng-gg/compeng-backend:latest
         command: ["python", "-u", "manage.py", "rundiscordbot"]
         name: {{ .Release.Name }}-discordbot
         envFrom:
@@ -23,6 +23,8 @@ spec:
         - name: http
           protocol: TCP
           containerPort: 8000
+      imagePullSecrets:
+      - name: docker
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ .Release.Name }}-discordbot

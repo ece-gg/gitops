@@ -99,7 +99,7 @@ spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt
+      name: letsencrypt-production
     solvers:
     - dns01:
         cloudflare:
