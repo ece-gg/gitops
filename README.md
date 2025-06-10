@@ -118,3 +118,14 @@ type: Opaque
 stringData:
   api-token: <API_TOKEN>
 ```
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: docker
+  namespace: compeng
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: <DOCKER_CONFIG_JSON_BASE64>
+```
