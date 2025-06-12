@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
-  instances: 3
+  instances: 2
   storage:
     storageClass: csi-cephfs-sc
     size: 20Gi
