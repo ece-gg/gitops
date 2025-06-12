@@ -24,3 +24,4 @@ spec:
         name: cnpg-forgejo
     services:
       disabledDefaultServices: ["ro"]
+  enablePDB: false
