@@ -8,7 +8,7 @@ spec:
     - websecure
   routes:
   - kind: Rule
-    match: Host(`{{ .Values.host }}`)
+    match: Host(`{{ .Values.domain }}`)
     services:
     - name: {{ .Release.Name }}
       port: 80

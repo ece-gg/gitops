@@ -21,7 +21,7 @@ spec:
           containerPort: 80
         env:
         - name: DOMAIN
-          value: "https://{{ .Values.host }}"
+          value: "https://{{ .Values.domain }}"
         - name: ADMIN_TOKEN
           valueFrom:
             secretKeyRef:
