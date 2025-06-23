@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: ceresforge
+  namespace: {{ .Release.Namespace }}
+spec:
+  name: ceresforge
+  owner: ceresforge
+  cluster:
+    name: {{ .Release.Name }}
+  ensure: present

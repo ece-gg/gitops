@@ -12,6 +12,11 @@ spec:
     roles:
     - name: app
       ensure: absent
+    - name: ceresforge
+      ensure: present
+      login: true
+      passwordSecret:
+        name: cnpg-ceresforge
     - name: compeng
       ensure: present
       login: true
