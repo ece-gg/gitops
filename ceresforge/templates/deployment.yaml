@@ -15,6 +15,9 @@ spec:
       containers:
       - image: ghcr.io/ceresforge/ceresforge:latest
         name: {{ .Release.Name }}
+        envFrom:
+        - secretRef:
+            name: {{ .Release.Name }}
         ports:
         - name: http
           protocol: TCP

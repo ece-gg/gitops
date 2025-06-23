@@ -71,6 +71,20 @@ stringData:
   api-token: <API_TOKEN>
 ```
 
+### `ceresforge`
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ceresforge
+  namespace: ceresforge
+type: Opaque
+stringData:
+  COOKIE_KEY: "<COOKIE_KEY>"
+  DATABASE_URL: "<DATABASE_URL>"
+```
+
 ### `cnpg`
 
 ```
