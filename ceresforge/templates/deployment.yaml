@@ -15,6 +15,9 @@ spec:
       containers:
       - image: ghcr.io/ceresforge/ceresforge:latest
         name: {{ .Release.Name }}
+        env:
+        - name: DOMAIN
+          value: "https://{{ .Values.domain }}"
         envFrom:
         - secretRef:
             name: {{ .Release.Name }}

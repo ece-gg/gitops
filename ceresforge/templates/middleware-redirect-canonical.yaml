@@ -6,5 +6,5 @@ metadata:
 spec:
   redirectRegex:
     permanent: true
-    regex: ^https?://(www.)?{{ .Values.host }}(.*)
-    replacement: https://{{ .Values.host }}${2}
+    regex: ^https?://(www.)?{{ .Values.domain }}(.*)
+    replacement: https://{{ .Values.domain }}${2}

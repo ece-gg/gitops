@@ -9,5 +9,5 @@ spec:
     kind: ClusterIssuer
     name: letsencrypt-production
   dnsNames:
-  - {{ .Values.host }}
-  - www.{{ .Values.host }}
+  - {{ .Values.domain }}
+  - www.{{ .Values.domain }}
