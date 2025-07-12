@@ -1,4 +1,4 @@
-host: argo-cd.ece.gg
+domain: argo-cd.ece.gg
 repoURL: git@code.ece.gg:ece-gg/gitops.git
 argo-cd-upstream:
   configs:

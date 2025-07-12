@@ -8,7 +8,7 @@ spec:
     - web
   routes:
   - kind: Rule
-    match: Host(`{{ .Values.host }}`)
+    match: Host(`{{ .Values.domain }}`)
     middlewares:
     - name: redirect-https
     services:

@@ -8,14 +8,14 @@ spec:
     - websecure
   routes:
   - kind: Rule
-    match: (Host(`{{ .Values.host }}`) || Host(`www.{{ .Values.host }}`)) && PathPrefix(`/api`)
+    match: (Host(`{{ .Values.domain }}`) || Host(`www.{{ .Values.domain }}`)) && PathPrefix(`/api`)
     middlewares:
     - name: redirect-canonical
     services:
     - name: {{ .Release.Name }}-backend
       port: 8000
   - kind: Rule
-    match: Host(`{{ .Values.host }}`) || Host(`www.{{ .Values.host }}`)
+    match: Host(`{{ .Values.domain }}`) || Host(`www.{{ .Values.domain }}`)
     middlewares:
     - name: redirect-canonical
     services:

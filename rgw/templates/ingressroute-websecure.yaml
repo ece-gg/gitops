@@ -8,7 +8,7 @@ spec:
     - websecure
   routes:
   - kind: Rule
-    match: HostRegexp(`^.+\.{{ .Values.host | replace "." "\\." }}$`) || Host(`{{ .Values.host }}`)
+    match: HostRegexp(`^.+\.{{ .Values.domain | replace "." "\\." }}$`) || Host(`{{ .Values.domain }}`)
     services:
     - name: rgw
       port: 7480

@@ -8,7 +8,7 @@ spec:
     - web
   routes:
   - kind: Rule
-    match: Host(`{{ .Values.host }}`) || Host(`www.{{ .Values.host }}`)
+    match: Host(`{{ .Values.domain }}`) || Host(`www.{{ .Values.domain }}`)
     middlewares:
     - name: redirect-canonical
     services:

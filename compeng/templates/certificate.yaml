@@ -8,4 +8,4 @@ spec:
   issuerRef:
     name: letsencrypt-production
   dnsNames:
-  - {{ .Values.host }}
+  - {{ .Values.domain }}
